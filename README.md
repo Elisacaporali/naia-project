@@ -22,3 +22,4 @@ Contribuições são bem-vindas! Por favor, abra uma issue para discutir mudanç
 ## Licença
 
 [MIT License](https://opensource.org/licenses/MIT)
+

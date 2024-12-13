@@ -1,41 +1,24 @@
-# ComunicacaoAdaptativaIA
+# Plataforma de Comunicação Adaptativa IA
 
-Plataforma de IA para facilitar a comunicação de pessoas neurodivergentes.
+Este projeto implementa uma plataforma de comunicação adaptativa usando inteligência artificial. A plataforma é capaz de interpretar contextos, analisar emoções e gerar respostas personalizadas baseadas na entrada do usuário.
 
-## Descrição do Projeto
+## Funcionalidades
 
-Este projeto visa desenvolver uma plataforma de comunicação adaptativa utilizando inteligência artificial para auxiliar pessoas neurodivergentes em diferentes contextos sociais. A plataforma interpreta o contexto e as emoções do usuário, fornecendo respostas personalizadas para melhorar a comunicação e o bem-estar.
+- Interpretação de contexto baseada em palavras-chave
+- Análise de emoções
+- Geração de respostas personalizadas
+- Interação contínua com feedback do usuário
 
-### Principais Características
+## Como usar
 
-- Entende o contexto (escola, casa, trabalho)
-- Analisa emoções (feliz, ansioso, frustrado, calmo)
-- Cria respostas adaptadas ao contexto e emoção
+1. Clone este repositório
+2. Execute o arquivo `comunicacao_adaptativa.py`
+3. Siga as instruções na tela para interagir com a IA
 
+## Contribuições
 
-## Desenvolvimento
+Contribuições são bem-vindas! Por favor, abra uma issue para discutir mudanças maiores antes de fazer um pull request.
 
-Este projeto está sendo desenvolvido principalmente através do GitHub. O código-fonte está disponível para visualização e colaboração neste repositório.
+## Licença
 
-### Arquivos do Projeto
-
-- `comunicacao_adaptativa.py`: Contém o código principal da plataforma.
-- `README.md`: Este arquivo, que explica o projeto.
-
-## Como Contribuir
-
-1. Faça um fork deste repositório.
-2. Crie uma nova branch para suas alterações.
-3. Faça suas alterações e commit.
-4. Envie um pull request com uma descrição clara das mudanças propostas.
-
-## Próximos Passos
-
-- Implementar análise de emoções mais avançada
-- Adicionar mais contextos e emoções
-- Desenvolver uma interface gráfica para melhor interação
-- Explorar opções para execução e teste online do código
-
-## Nota
-
-Atualmente, o projeto está em fase de desenvolvimento e prototipagem no GitHub. Futuramente, buscaremos implementar formas de executar e testar o código em ambientes online para facilitar o acesso e colaboração.
+[MIT License](https://opensource.org/licenses/MIT)

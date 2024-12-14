@@ -1,6 +1,9 @@
 import random
 
 class ComunicacaoAdaptativa:
+    import random
+
+class ComunicacaoAdaptativa:
     def __init__(self):
         self.contextos = ["escola", "faculdade", "casa", "trabalho", "lazer", "relacionamentos", "saúde", "finanças", "comunidade"]
         self.emocoes = ["feliz", "irritado", "aliviado", "desapontado", "inseguro", "entediado", "ansioso", "frustrado", "calmo", "empolgado", "triste", "confuso", "confiante", "estressado", "esperançoso"]
@@ -28,7 +31,7 @@ class ComunicacaoAdaptativa:
             "viagens": ["turismo", "viagem", "destino"],
             "cultura": ["arte", "música", "literatura"]
         }
-        
+
         for contexto, palavras in palavras_chave.items():
             if any(palavra in mensagem.lower() for palavra in palavras):
                 return contexto
@@ -46,7 +49,7 @@ class ComunicacaoAdaptativa:
             "confiante": ["seguro", "determinado", "otimista"],
             "estressado": ["sobrecarregado", "pressionado", "tenso"],
             "esperançoso": ["otimista", "positivo", "confiante"]
-        } 
+        }
         for emocao, palavras in todas_emocoes.items():
             if any(palavra in mensagem.lower() for palavra in palavras):
                 return emocao
@@ -55,13 +58,13 @@ class ComunicacaoAdaptativa:
     def gerar_resposta(self, mensagem):
         contexto = self.interpretar_contexto(mensagem)
         emocao = self.analisar_emocao(mensagem)
-        
+
         if "python" in mensagem.lower() or "código" in mensagem.lower() or "programação" in mensagem.lower():
             return "Entendo que você está estudando Python. Que parte específica do Python você está achando difícil? Posso te dar algumas dicas ou explicar algum conceito específico."
-        
+
         if "estudar" in mensagem.lower() or "entender" in mensagem.lower():
             return "Estudar pode ser desafiador às vezes. Sobre qual matéria ou tópico específico você gostaria de ajuda? Podemos quebrar o assunto em partes menores para facilitar o entendimento."
-        
+
         respostas = {
             ("escola", "ansioso"): "Entendo que você está ansioso na escola. Que tal fazermos um exercício de respiração juntos?",
             ("casa", "feliz"): "Que bom que você está feliz em casa! Quer compartilhar o que está te deixando assim?",
@@ -72,7 +75,7 @@ class ComunicacaoAdaptativa:
             ("finanças", "estressado"): "Finanças podem ser estressantes. Que tal criarmos um plano de orçamento juntos?",
             ("comunidade", "esperançoso"): "É inspirador ver você esperançoso sobre sua comunidade. Tem algum projeto comunitário em mente?"
         }
-        
+
         chave = (contexto, emocao)
         if chave in respostas:
             return respostas[chave]
@@ -82,17 +85,38 @@ class ComunicacaoAdaptativa:
     def interagir(self):
         print("Bem-vindo à Plataforma de Comunicação Adaptativa!")
         self.usuario_atual = input("Como você gostaria de ser chamado? ")
-        
+
         while True:
             try:
                 mensagem = input(f"\n{self.usuario_atual}, como posso te ajudar hoje? (ou digite 'sair' para encerrar) ")
                 if mensagem.lower() == 'sair':
                     print("Obrigado por usar nossa plataforma. Até a próxima!")
                     break
-                
+
                 resposta = self.gerar_resposta(mensagem)
                 print(f"\nAssistente: {resposta}")
-                
+
+                feedback = input("Esta resposta foi útil? (sim/não) ")
+                if feedback.lower() == 'não':
+                    print("Sinto muito que a resposta não foi útil. Pode me dizer mais sobre o que você precisa? Estou aqui para ajudar da melhor forma possível.")
+            except KeyboardInterrupt:
+                print("\nEntendo que você pode precisar de uma pausa. Estou aqui quando quiser continuar.")
+                continue
+
+    def interagir(self):
+        print("Bem-vindo à Plataforma de Comunicação Adaptativa!")
+        self.usuario_atual = input("Como você gostaria de ser chamado? ")
+
+        while True:
+            try:
+                mensagem = input(f"\n{self.usuario_atual}, como posso te ajudar hoje? (ou digite 'sair' para encerrar) ")
+                if mensagem.lower() == 'sair':
+                    print("Obrigado por usar nossa plataforma. Até a próxima!")
+                    break
+
+                resposta = self.gerar_resposta(mensagem)
+                print(f"\nAssistente: {resposta}")
+
                 feedback = input("Esta resposta foi útil? (sim/não) ")
                 if feedback.lower() == 'não':
                     print("Sinto muito que a resposta não foi útil. Pode me dizer mais sobre o que você precisa? Estou aqui para ajudar da melhor forma possível.")

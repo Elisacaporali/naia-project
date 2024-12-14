@@ -27,7 +27,7 @@ Com NAIA, estamos redefinindo o significado de "assistência digital":
 - **Apoio Emocional**: NAIA reconhece e responde a nuances emocionais.
 - **Adaptação Contínua**: Cresce e se desenvolve junto com sua família.
 - **Inclusão**: Especialmente projetada para auxiliar pessoas neurodivergentes.
-- **Conexão**: Fortalece laços familiares através de interações significativas.
+- **Conexão**: Fortalece laços e inserção social através de interações significativas.
 
 ### 🌈 Para Quem é NAIA?
 

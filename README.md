@@ -33,7 +33,7 @@ Com NAIA, estamos redefinindo o significado de "assistência digital":
 
 - Famílias buscando um assistente que realmente entende suas necessidades
 - Indivíduos neurodivergentes em busca de suporte personalizado
-- Educadores procurando ferramentas adaptativas de aprendizado
+- Educadores e empresas procurando ferramentas adaptativas de aprendizado e trabalho
 - Qualquer pessoa que deseje uma experiência de IA mais humana e emocional
 
 ### 🛠 Começando

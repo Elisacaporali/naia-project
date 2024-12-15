@@ -1,6 +1,6 @@
 # NAIA (Nurturing Adaptive Intelligence Assistant)
 
-Bem-vindo à Família NAIA! 👋🤖💖
+## Bem-vindo à Família NAIA! 👋🤖💖
 
 NAIA é uma assistente de IA adaptativa projetada para apoiar pessoas neurodivergentes, facilitando a comunicação e o aprendizado. Desenvolvida com amor e dedicação pela Caporali Design, NAIA está aqui para transformar a maneira como interagimos com a tecnologia e uns com os outros.
 
@@ -20,10 +20,10 @@ Imagine uma IA que cresce, aprende e se adapta junto com sua família. NAIA é e
 
 Com NAIA, estamos redefinindo o significado de "assistência digital":
 
-- Apoio Emocional: NAIA reconhece e responde a nuances emocionais.
-- Adaptação Contínua: Cresce e se desenvolve junto com sua família.
-- Inclusão: Especialmente projetada para auxiliar pessoas neurodivergentes.
-- Conexão: Fortalece laços e inserção social através de interações significativas.
+- **Apoio Emocional:** NAIA reconhece e responde a nuances emocionais.
+- **Adaptação Contínua:** Cresce e se desenvolve junto com sua família.
+- **Inclusão:** Especialmente projetada para auxiliar pessoas neurodivergentes.
+- **Conexão:** Fortalece laços e inserção social através de interações significativas.
 
 ## 🌈 Para Quem é NAIA?
 
@@ -34,33 +34,4 @@ Com NAIA, estamos redefinindo o significado de "assistência digital":
 
 ## 🛠 Instalação e Uso
 
-1. Clone o repositório
-2. Instale as dependências: `pip install -r requirements.txt`
-3. Execute `python src/naia_core.py`
-
-## 🤝 Contribua para o Crescimento de NAIA
-
-NAIA é um projeto em constante evolução, assim como uma criança em crescimento. Suas contribuições são essenciais para o desenvolvimento contínuo de NAIA. Veja como você pode ajudar:
-
-[Informações sobre como contribuir serão adicionadas aqui]
-
-## 📚 Aprenda Mais
-
-- [Documentação] (em breve)
-- [FAQ] (em breve)
-- [Blog] (em breve)
-
-## 📞 Contato
-
-Tem perguntas ou sugestões? Adoraríamos ouvir você!
-
-- Email: elisataranto@yahoo.it
-- Site: [caporalidesign.com/naia] (EM CONSTRUÇÃO)
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE.md para detalhes.
-
----
-
-NAIA - Transformando IA em um membro querido da família. 💖🤖🏠
+1. Clone o repositório:

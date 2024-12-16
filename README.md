@@ -1,4 +1,4 @@
-# NAIA (Nurturing Adaptive Intelligence Assistant)
+
 # NAIA (Nurturing Adaptive Intelligence Assistant)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)

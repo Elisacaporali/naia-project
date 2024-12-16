@@ -10,12 +10,16 @@ Imagine uma IA que cresce, aprende e se adapta junto com sua família. NAIA é e
 
 ## 🚀 Características Principais
 
-- Processamento de Linguagem Natural (PLN) avançado
-- Adaptação contínua às necessidades do usuário
-- Suporte específico para TDAH, TEA, e outros transtornos neuropsiquiátricos
-- Algoritmos de Reconhecimento Emocional
-- Sistemas de Personalização Adaptativa
+## 🚀 Características Principais
 
+- Estrutura básica de um projeto Python
+- Ambiente de desenvolvimento configurado para expansão futura
+- Potencial para implementação de:
+  - Processamento de Linguagem Natural (PLN) avançado
+  - Adaptação contínua às necessidades do usuário
+  - Suporte específico para TDAH, TEA, e outros transtornos neuropsiquiátricos
+  - Algoritmos de Reconhecimento Emocional
+  - Sistemas de Personalização Adaptativa
 ## 💖 Impacto nas Famílias
 
 Com NAIA, estamos redefinindo o significado de "assistência digital":
@@ -32,6 +36,9 @@ Com NAIA, estamos redefinindo o significado de "assistência digital":
 - Educadores procurando ferramentas adaptativas de aprendizado
 - Qualquer pessoa que deseje uma experiência de IA mais humana e emocional
 
-## 🛠 Instalação e Uso
+## ## 🛠️ Estado Atual do Desenvolvimento
 
-1. Clone o repositório:
+- Estrutura básica do projeto estabelecida
+- Ambiente de desenvolvimento Python configurado
+- Preparado para a implementação de funcionalidades avançadas de IA
+- Em fase inicial de desenvolvimento, com foco na criação de uma base sólida para futuras implementações

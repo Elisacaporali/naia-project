@@ -1,4 +1,7 @@
 # NAIA (Nurturing Adaptive Intelligence Assistant)
+# NAIA (Nurturing Adaptive Intelligence Assistant)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ## Bem-vindo à Família NAIA! 👋🤖💖
 
@@ -42,3 +45,8 @@ Com NAIA, estamos redefinindo o significado de "assistência digital":
 - Ambiente de desenvolvimento Python configurado
 - Preparado para a implementação de funcionalidades avançadas de IA
 - Em fase inicial de desenvolvimento, com foco na criação de uma base sólida para futuras implementações
+- ## 📄 Licença
+
+NAIA é licenciado sob a Licença Apache 2.0. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes completos.
+
+Copyright 2024 Elisa Caporali

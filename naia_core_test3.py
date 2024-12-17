@@ -109,10 +109,12 @@ class AssistenteIA:
 
     def configurar_contatos_emergencia(self):
         print("Assistente: Vamos configurar seus contatos de emergência.")
-        familiar = input("Por favor, digite o nome e número de telefone de um familiar (ex: Maria 11999999999): ")
-        medico = input("Agora, digite o nome e número de telefone do seu médico (ex: Dr. Silva 11988888888): ")
-        self.contatos_emergencia['familiar'] = familiar
-        self.contatos_emergencia['medico'] = medico
+        familiar_nome = input("Por favor, digite o nome de um familiar: ")
+        familiar_numero = input(f"Digite o número de telefone de {familiar_nome}: ")
+        medico_nome = input("Agora, digite o nome do seu médico: ")
+        medico_numero = input(f"Digite o número de telefone do Dr. {medico_nome}: ")
+        self.contatos_emergencia['familiar'] = (familiar_nome, familiar_numero)
+        self.contatos_emergencia['medico'] = (medico_nome, medico_numero)
 
     def fazer_pergunta(self, pergunta):
         resposta = input(f"Assistente: {pergunta} ")
@@ -190,7 +192,7 @@ class AssistenteIA:
     def enviar_aviso(self, mensagem):
         print("Assistente: Enviando aviso...")
         for contato, info in self.contatos_emergencia.items():
-            nome, numero = info.split()
+            nome, numero = info
             print(f"Aviso enviado para {nome} ({numero}): {mensagem}")
         print("Assistente: Avisos enviados com sucesso.")
 

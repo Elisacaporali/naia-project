@@ -1,7 +1,5 @@
 # NAIA: Neuroadaptative Intelligent Assistant
 
-NAIA é uma assistente inteligente neuroadaptativa projetada para apoiar indivíduos neurodivergentes em várias áreas de suas vidas, incluindo educação, trabalho, interações sociais e gestão de saúde.
-
 ## Fluxograma Operacional Integrado
 
 ```mermaid
@@ -21,6 +19,7 @@ graph TD
     J --> K[9. Coleta e Análise de Dados de Uso]
     K --> L[10. Atualização do Perfil e Aprendizado do Sistema]
     L --> A
+
 # NAIA (Nurturing Adaptive Intelligence Assistant)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)

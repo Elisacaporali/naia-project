@@ -1,0 +1,337 @@
+import re
+import random
+
+
+remedios_cadastrados = {}
+contato_emergencia = ""
+numero_emergencia = "" 
+nome = ""
+horarios_medicamentos = []
+
+
+def get_greeting():
+        return "Olá, meu nome é N.A.I.A! Como devo lhe chamar?"
+
+def process_user_name(nome):
+        nome = nome.strip()
+        return f"Prazer em conhecê-lo, {nome}! Como você está se sentindo hoje?"
+
+def analyze_feeling(sentimento):
+        sentimento = sentimento.strip().lower()
+        if sentimento in ['triste', 'mau', 'mal', 'ruim', 'cansado', 'desanimado', 'estressado', 'sobrecarregado', 'preocupado']:
+            return "É normal se sentir assim às vezes. Que tal pensar com mais carinho naquilo que te afeta?"
+        elif sentimento in ['bem', 'feliz', 'animado', 'contente', 'alegre', 'ótimo', 'inspirado', 'otimista']:
+            return "Que bom que se sente assim! Se você está bem, eu me sinto bem."
+        elif sentimento in ['ok', 'normal', 'mais ou menos', 'regular', 'tanto faz', 'indiferente', 'na mesma']:
+            return "Certo! Tentarei ajudar da melhor forma possível."
+            
+        else:
+            return "Certo! Tentarei ajudar da melhor forma possível."
+
+def neurodivergence_options():
+        return [
+
+            "Você possui algum perfil neurodivergente?\n",
+            "1. TEA",
+            "2. TDAH",
+            "3. Nenhum dos acima",
+            "4. Sair"
+        ]
+            
+        
+
+def process_neurodivergence(option):
+        if option in ["1", "2"]:
+            return perguntar_remedio()
+        elif option == "3":
+            return outros_transtornos()
+        
+        elif option == "4":
+            return sair()
+        
+        return "Marque uma das opções: 1, 2, 3 ou 4. \n" + neurodivergence_options() 
+
+
+def outros_transtornos():
+      return "Qual outro transtorno você possui?"
+
+
+
+def perguntar_remedio():
+        return "Você toma algum medicamento? (sim/não)"
+
+
+
+def cadastrar_remedios(remedio, dosagem, horario):
+        try:
+        # Adiciona ou atualiza a dosagem do medicamento no dicionário
+            remedios_cadastrados[remedio] = dosagem
+            horarios_medicamentos.append(horario)
+            return f"Medicamento {remedio} com dosagem {dosagem} e no horário {horario} armazenado com sucesso. Informe outro medicamento ou digite 'fim'."
+        except Exception as e:
+            return f"Erro ao cadastrar medicamento: {str(e)}"
+
+def listar_medicamentos():
+    if not remedios_cadastrados:
+        return "Nenhum medicamento cadastrado."
+    
+    lista_medicamentos = "\n".join([f"{remedio}: {dosagem}" for remedio, dosagem in remedios_cadastrados.items()])
+    return f"Medicamentos cadastrados:\n{lista_medicamentos}"
+
+def opcoes_remedios(option):
+        if option.lower() == "sim":
+            return "Quais medicamentos você toma? Informe o nome e a dosagem e o horário (exemplo: Paracetamol 500mg e 10h)"
+        elif option.lower() == "não":
+            return perguntar_se_deseja_cadastrar_contato()
+        else:
+            return "Não entendi. Por favor, responda com 'sim' ou 'não'."
+
+
+def perguntar_se_deseja_cadastrar_contato():
+    return "Deseja informar um contato de emergência? (sim/não)"
+
+
+def informar_contato():
+    return {"status": "success", "message": "Contato informado com sucesso"}
+
+
+def nome_contato(nome):
+        contato_emergencia = nome
+        return f"Você escolheu o contato: {nome}"
+
+def informar_numero():
+        return "Informe o número do contato de emergência."
+
+def numero_contato(numero):
+        numero_emergencia = numero
+        return "Contato de emergência configurado!"
+
+
+
+
+def menu():
+        return [
+            "Escolha uma opção: \n",
+            "1 - Nome da pessoa \n",
+            "2 - Lista de medicamentos e dosagem \n",
+            "3 - Contato de emergência \n",
+            "4 - Pausa para meditação \n",
+            "5 - Sugestões de rotina \n"
+            "6 - Fale com a N.A.I.A \n",
+            "7 - Sair"
+        ]
+
+
+def sair():
+        return "Obrigado por testar a N.A.I.A em primeira mão."
+
+def nome_usuario(nome):
+        return f"Nome da pessoa: {nome}"
+
+def listar_medicamentos():
+    if not remedios_cadastrados:
+        print("Nenhum medicamento cadastrado.")  # Log para depuração
+        return "Nenhum medicamento cadastrado."
+    
+    lista_medicamentos = "\n".join([f"{remedio}: {dosagem}" for remedio, dosagem in remedios_cadastrados.items()])
+    print(f"Lista de medicamentos: {lista_medicamentos}")  # Log para depuração
+    return f"Medicamentos cadastrados:\n{lista_medicamentos}"
+    
+
+
+def listar_contato():
+        return f"Nome do contato de emergência: {contato_emergencia}\nNúmero do contato de emergência: {numero_emergencia}"
+
+
+def meditacao():
+        return "Pausa de meditação de 15 segundos."
+
+
+def sugestao_rotina():
+    try:
+        rotinas = [
+                "🌅 Manhã tranquila: Acorde no mesmo horário todos os dias, faça alongamentos leves e tome um café da manhã nutritivo.",
+                "📅 Planejamento do dia: Use um planner ou aplicativo para organizar suas tarefas e evitar sobrecarga mental.",
+                "🎧 Momentos de descanso: Separe períodos curtos durante o dia para ouvir música relaxante ou praticar mindfulness.",
+                "🧘 Exercício e bem-estar: Faça atividades físicas adaptadas às suas necessidades, como yoga, caminhada ou dança.",
+                "🍽️ Alimentação estruturada: Estabeleça horários fixos para refeições e evite distrações para uma melhor digestão.",
+                "💻 Trabalho/Estudo: Divida suas tarefas em blocos de 25 a 50 minutos com pausas para manter o foco.",
+                "🔇 Redução de estímulos: Crie um ambiente tranquilo para momentos de concentração, reduzindo barulhos e luzes fortes.",
+                "📚 Tempo para interesses especiais: Dedique um momento do dia para explorar um hobby ou aprender algo novo.",
+                "😌 Relaxamento noturno: Crie uma rotina de sono consistente, evitando telas antes de dormir e praticando respiração profunda.",
+                "📝 Descompressão: Antes de dormir, anote pensamentos ou preocupações para aliviar a mente e facilitar o sono."
+        ]
+        
+        return random.choice(rotinas)     
+
+    except Exception as e:
+            print(e)
+            return f"Erro ao sugerir rotina: {str(e)}"  
+
+
+def falar_com_naia(text):
+    try:
+        perguntas_respostas = {
+            # Perguntas sobre TEA
+        "O que é TEA?": "O Transtorno do Espectro Autista (TEA) é uma condição neurológica que afeta a comunicação e o comportamento.",
+        "Quais são os principais sinais do TEA?": "Dificuldade na interação social, comunicação atípica e comportamentos repetitivos.",
+        "O TEA pode ser diagnosticado em adultos?": "Sim, embora o diagnóstico seja mais comum na infância, muitos adultos descobrem tardiamente que têm TEA.",
+        "O TEA afeta a inteligência?": "Não necessariamente. Algumas pessoas têm déficits intelectuais, enquanto outras têm habilidades acima da média.",
+        "O que significa ser 'autista nível 1, 2 ou 3'?": "É uma classificação baseada no nível de suporte necessário, sendo 1 o mais leve e 3 o mais intenso.",
+        "O autismo tem cura?": "Não, mas intervenções terapêuticas ajudam a melhorar a qualidade de vida.",
+        "Toda pessoa com TEA tem hipersensibilidade sensorial?": "Não, algumas têm hipersensibilidade (a sons, luzes, cheiros), mas outras podem ter hipossensibilidade.",
+        "O TEA afeta a comunicação verbal?": "Algumas pessoas são não verbais, outras têm dificuldades sutis na fala, e algumas falam normalmente.",
+        "O que é a síndrome de Asperger?": "É um tipo de TEA caracterizado por dificuldades sociais, mas sem atraso significativo na fala.",
+        "Como posso apoiar alguém com TEA?": "Ser paciente, respeitar limites sensoriais e comunicar-se de forma clara e objetiva.",
+        
+        # Perguntas sobre TDAH
+        "O que é TDAH?": "Transtorno do Déficit de Atenção e Hiperatividade, que afeta a atenção, impulsividade e hiperatividade.",
+        "Quais são os principais sintomas do TDAH?": "Dificuldade de concentração, impulsividade e inquietação excessiva.",
+        "O TDAH afeta apenas crianças?": "Não, adultos também podem ter TDAH, muitas vezes sem diagnóstico.",
+        "O TDAH pode ser tratado?": "Sim, com terapia comportamental, ajustes na rotina e, em alguns casos, medicação.",
+        "Quem pode diagnosticar TDAH?": "Psiquiatras e neuropsicólogos são os profissionais mais indicados para o diagnóstico.",
+        "TDAH está relacionado à inteligência?": "Não, pessoas com TDAH podem ter qualquer nível de inteligência.",
+        "Pessoas com TDAH têm dificuldade em concluir tarefas?": "Sim, é comum a procrastinação e a dificuldade em manter o foco por longos períodos.",
+        "O que pode ajudar no TDAH sem uso de remédios?": "Rotinas estruturadas, exercícios físicos e técnicas de organização podem ajudar bastante.",
+        "O TDAH é hereditário?": "Sim, pesquisas indicam que há um forte componente genético no TDAH.",
+        "Pessoas com TDAH são sempre hiperativas?": "Não, existem subtipos, incluindo o desatento, que não apresenta hiperatividade.",
+        
+        # Perguntas de conhecimento geral
+        "Qual é o maior planeta do sistema solar?": "Júpiter é o maior planeta do sistema solar.",
+        "Quem descobriu o Brasil?": "O Brasil foi oficialmente descoberto por Pedro Álvares Cabral em 1500.",
+        "Qual é a capital da França?": "A capital da França é Paris.",
+        "Quem pintou a Mona Lisa?": "A Mona Lisa foi pintada por Leonardo da Vinci.",
+        "Quantos continentes existem?": "Existem seis continentes: América, África, Europa, Ásia, Oceania e Antártida.",
+        "O que é fotossíntese?": "É o processo pelo qual as plantas produzem energia a partir da luz solar.",
+        "Quem foi Albert Einstein?": "Einstein foi um físico famoso pela Teoria da Relatividade.",
+        "O que significa a sigla ONU?": "ONU significa Organização das Nações Unidas.",
+        "Quantos ossos tem o corpo humano?": "O corpo humano adulto tem 206 ossos.",
+        "Qual é o elemento químico mais abundante no universo?": "O hidrogênio é o elemento mais abundante no universo.",
+        "Quem escreveu Dom Quixote?": "O livro Dom Quixote foi escrito por Miguel de Cervantes.",
+        "Qual é o animal mais rápido do mundo?": "O falcão-peregrino é o animal mais rápido do mundo, podendo atingir 390 km/h em mergulho.",
+        "O que significa CPU?": "CPU significa Unidade Central de Processamento, o cérebro do computador.",
+        "Quem foi o primeiro homem a pisar na Lua?": "Neil Armstrong foi o primeiro homem a pisar na Lua, em 1969.",
+        "Qual é o metal mais leve do mundo?": "O lítio é o metal mais leve conhecido.",
+        "Qual é o maior oceano do planeta?": "O maior oceano é o Oceano Pacífico.",
+        "Quem foi o criador do telefone?": "Alexander Graham Bell é creditado como o inventor do telefone.",
+        "O que é um ano-luz?": "Ano-luz é a distância que a luz percorre no vácuo em um ano, aproximadamente 9,46 trilhões de quilômetros.",
+        "Qual é a montanha mais alta do mundo?": "O Monte Everest é a montanha mais alta do mundo, com 8.848 metros de altitude.",
+        "O que significa WWW?": "WWW significa World Wide Web, a teia mundial de computadores.",
+        "Quem escreveu Harry Potter?": "A série Harry Potter foi escrita por J.K. Rowling.",
+        "Quantos dentes tem um ser humano adulto?": "Um ser humano adulto tem 32 dentes.",
+        "O que é uma célula?": "A célula é a unidade básica da vida, presente em todos os seres vivos.",
+        "O que significa DNA?": "DNA significa Ácido Desoxirribonucleico, responsável pelo código genético dos seres vivos.",
+        "Qual é o maior deserto do mundo?": "O maior deserto do mundo é a Antártida, seguido pelo Deserto do Saara.",
+
+        # Perguntas sobre psicologia
+        "O que é ansiedade?": "Ansiedade é uma resposta natural do corpo ao estresse, podendo ser benéfica em algumas situações.",
+        "O que é a resiliência emocional?": "Resiliência emocional é a capacidade de se recuperar rapidamente de dificuldades e adversidades.",
+        "O que é a cognição?": "Cognição é o conjunto de processos mentais envolvidos na aquisição de conhecimento e compreensão.",
+        "Como funciona o condicionamento clássico?": "É um tipo de aprendizado no qual um estímulo neutro passa a evocar uma resposta após ser associado a um estímulo incondicionado.",
+        "O que é reforço positivo?": "Reforço positivo é a adição de um estímulo agradável para aumentar a probabilidade de um comportamento ocorrer novamente.",
+        "O que é reforço negativo?": "Reforço negativo é a remoção de um estímulo desagradável para aumentar a ocorrência de um comportamento desejado.",
+        "O que é a teoria do apego?": "É uma teoria que explica como os vínculos emocionais entre indivíduos se formam e influenciam o desenvolvimento.",
+        "O que é memória de curto prazo?": "É a capacidade de armazenar pequenas quantidades de informação por um curto período.",
+        "O que é memória de longo prazo?": "É o armazenamento duradouro de informações e experiências adquiridas ao longo da vida.",
+        "O que é transtorno obsessivo-compulsivo (TOC)?": "É um transtorno caracterizado por obsessões e compulsões que interferem na vida diária.",
+        "O que é um viés cognitivo?": "São padrões sistemáticos de desvios do pensamento lógico que afetam a tomada de decisão.",
+        "O que é a teoria das inteligências múltiplas?": "É uma teoria proposta por Howard Gardner que sugere a existência de diferentes tipos de inteligência.",
+        "O que é a psicologia positiva?": "É um ramo da psicologia focado no estudo das emoções positivas, forças e virtudes humanas.",
+        "O que é a teoria da dissonância cognitiva?": "É a ideia de que os indivíduos sentem desconforto quando possuem crenças ou comportamentos contraditórios.",
+        "O que é empatia?": "Empatia é a capacidade de compreender e compartilhar os sentimentos de outra pessoa.",
+        "O que é transtorno bipolar?": "É um transtorno mental caracterizado por mudanças extremas de humor, variando entre episódios de mania e depressão.",
+        "O que é a psicanálise?": "É um método terapêutico criado por Freud que busca explorar o inconsciente para entender o comportamento humano.",
+        "O que é o efeito placebo?": "É um fenômeno no qual uma substância sem efeito real provoca uma melhora por conta da expectativa do paciente.",
+        "O que é um transtorno de personalidade?": "São padrões persistentes de comportamento e experiência interna que desviam significativamente das normas culturais.",
+        "O que é a autoeficácia?": "É a crença na própria capacidade de realizar tarefas e alcançar objetivos.",
+        "O que é o transtorno de estresse pós-traumático (TEPT)?": "É um transtorno causado por experiências traumáticas, resultando em sintomas como flashbacks e ansiedade intensa.",
+        "O que é o efeito de grupo?": "É a tendência das pessoas de conformarem suas opiniões e comportamentos ao grupo ao qual pertencem.",
+        "O que é o desenvolvimento cognitivo?": "É o processo pelo qual as habilidades intelectuais evoluem ao longo da vida.",
+        "O que é neuroplasticidade?": "É a capacidade do cérebro de se reorganizar formando novas conexões neurais.",
+        "O que é a síndrome de burnout?": "É um estado de exaustão emocional, física e mental causado pelo estresse crônico no trabalho.",
+        "O que é o transtorno de ansiedade generalizada (TAG)?": "É um transtorno caracterizado por preocupação excessiva e dificuldade em controlar a ansiedade.",
+        "O que é o efeito halo?": "É a tendência de avaliar uma pessoa de forma positiva ou negativa com base em uma única característica.",
+        "O que é a hierarquia das necessidades de Maslow?": "É uma teoria psicológica que propõe uma hierarquia de necessidades humanas, desde básicas até autorrealização.",
+        "O que é o efeito Pigmalião?": "É o fenômeno em que as expectativas de uma pessoa influenciam o desempenho de outra.",
+
+
+        "O que é mindfulness?": "Mindfulness é a prática de estar presente e consciente no momento, sem julgamentos.",
+        "O que é um algoritmo?": "Um algoritmo é uma sequência de passos lógicos para resolver um problema ou realizar uma tarefa.",
+        "O que é inteligência artificial?": "Inteligência artificial é o campo da ciência da computação que busca criar máquinas capazes de imitar a inteligência humana.",
+        "O que é machine learning?": "Machine learning é uma área da inteligência artificial que ensina computadores a aprenderem com dados sem serem explicitamente programados.",
+        "O que é blockchain?": "Blockchain é uma tecnologia de registro distribuído que garante segurança e transparência em transações digitais.",
+        "O que é computação em nuvem?": "Computação em nuvem é a entrega de serviços de computação, como armazenamento e processamento, pela internet.",
+        "O que é um banco de dados?": "Um banco de dados é um sistema que armazena, organiza e gerencia dados de forma eficiente.",
+        "O que é cibersegurança?": "Cibersegurança é a prática de proteger sistemas, redes e dados contra ataques digitais.",
+        "O que é um sistema operacional?": "Um sistema operacional é um software que gerencia os recursos de hardware e software de um computador.",
+        "O que é um protocolo de rede?": "Um protocolo de rede é um conjunto de regras que define como os dispositivos se comunicam em uma rede.",
+        "O que é um firewall?": "Um firewall é um sistema de segurança que monitora e controla o tráfego de rede com base em regras de segurança.",
+        "O que é um servidor?": "Um servidor é um computador que fornece serviços ou recursos para outros dispositivos em uma rede.",
+    }
+
+
+        # Normalizar o texto de entrada
+        text = text.strip().casefold()  # casefold() é melhor para comparação de strings
+
+        for key in perguntas_respostas:
+            key_normalized = key.casefold()  # Normaliza as chaves também
+            if re.search(re.escape(key_normalized), text):  # Busca sem \b para mais flexibilidade
+                return perguntas_respostas[key]
+
+        return "Desculpe, não entendi a sua pergunta. Poderia reformular?"
+    
+    except Exception as e:
+        return f"Erro ao processar pergunta: {str(e)}"
+
+def sair():
+        return "Obrigado por testar a N.A.I.A em primeira mão."
+
+
+def iniciar_menu(option, nome=None, text=None):
+    options_map = {
+        "1": lambda: nome_usuario(nome),  # Passa o nome como argumento
+        "2": listar_medicamentos,        # Função sem argumentos
+        "3": listar_contato,             # Função sem argumentos
+        "4": meditacao,                  # Função sem argumentos
+        "5": sugestao_rotina,            # Passa o texto como argumento
+        "6": lambda: falar_com_naia(text),  # Função sem argumentos
+        "7": sair                        # Função sem argumentos
+    }
+    
+    # Obtém a função correspondente à opção
+    selected_function = options_map.get(option)
+    
+    if selected_function:
+        return selected_function()  # Executa a função
+    else:
+        return "Opção inválida. Por favor, escolha uma das opções: 1, 2, 3, 4, 5, 6 ou 7."
+    
+
+
+
+
+
+def verificar_estado_do_usuario(text):
+    if not text:
+        return False
+    
+    try:
+        palavras_negativas = {"crise", "crise de ansiedade", "pânico", "depressão", "triste", "desesperado", "angustiado", "sufocado", "medo", "ansioso", "desamparado", "exausto",
+                              "sobrecarregado", "inseguro", "aflito", "perturbado", "frustrado", "solitário", "desmotivado", "abatido", "desesperançoso", 
+                              "oprimido", "confuso", "vulnerável", "desorientado", "cansado", "fragilizado", "desolado", "desgostoso", "apático", "desconfortável", "irritado", "agonizado", "oprimido", "sufocante"}
+        
+        texto_lower = text.lower()
+        
+        
+
+        for palavra in palavras_negativas:
+            if palavra in texto_lower:
+                return True
+        
+        return False
+    
+    except Exception as e:
+          print(f"Erro na função: {str(e)}")
+      
+
+      
